@@ -1,0 +1,116 @@
+/* Stylish, Professional, and Eye-Catching Login Form */
+
+.login-container {
+    width: 100%;
+    max-width: 420px;
+    margin: 80px auto;
+    padding: 40px;
+    background: linear-gradient(135deg, #ffffff, #f3f3f3);
+    border-radius: 12px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+    text-align: center;
+    font-family: 'Poppins', sans-serif;
+    animation: fadeIn 0.8s ease-in-out;
+  }
+  
+  /* Heading */
+  .heading {
+    font-size: 28px;
+    font-weight: 700;
+    color: #2c3e50;
+    margin-bottom: 25px;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+  }
+  
+  /* Form Styling */
+  .login-form {
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+  }
+  
+  /* Labels */
+  .login-label {
+    font-size: 15px;
+    font-weight: 600;
+    text-align: left;
+    color: #2c3e50;
+  }
+  
+  /* Input Fields */
+  .login-input {
+    width: 100%;
+    padding: 14px;
+    border: 1px solid #bdc3c7;
+    border-radius: 8px;
+    font-size: 16px;
+    background: #ffffff;
+    transition: all 0.3s;
+    box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+  
+  .login-input:focus {
+    border-color: #3498db;
+    box-shadow: 0 0 8px rgba(52, 152, 219, 0.5);
+    outline: none;
+  }
+  
+  /* Login Button */
+  .login-button {
+    background: linear-gradient(135deg, #2980b9, #1f618d);
+    color: #fff;
+    font-size: 18px;
+    padding: 14px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.3s;
+    font-weight: 600;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+  }
+  
+  .login-button:hover {
+    background: linear-gradient(135deg, #1f618d, #2980b9);
+    transform: scale(1.05);
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
+  }
+  
+  .login-button:disabled {
+    background: #95a5a6;
+    cursor: not-allowed;
+  }
+  
+  /* Error Message */
+  .login-error {
+    color: #e74c3c;
+    font-size: 15px;
+    font-weight: 600;
+    margin-top: 12px;
+    background: rgba(231, 76, 60, 0.1);
+    padding: 10px;
+    border-radius: 6px;
+  }
+  
+  /* Register Link */
+  .login-container a {
+    display: block;
+    margin-top: 18px;
+    text-decoration: none;
+    color: #2980b9;
+    font-size: 16px;
+    transition: color 0.3s, transform 0.2s;
+    font-weight: 600;
+  }
+  
+  .login-container a:hover {
+    color: #1f618d;
+    text-decoration: underline;
+    transform: scale(1.05);
+  }
+  
+  @keyframes fadeIn {
+    from { opacity: 0; transform: translateY(-10px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+  
