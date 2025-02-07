@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, Link } from "react-router-dom";
 import "./assets/index.css";
 
 function Login({ setUser }) {
@@ -15,7 +15,7 @@ function Login({ setUser }) {
     setError("");
     setLoading(true);  // Set loading to true when submitting the form
     try {
-      const response = await fetch("http://localhost:9090/api/login", {
+      const response = await fetch("http://localhost:9090/api/auth/login", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -23,31 +23,25 @@ function Login({ setUser }) {
         body: JSON.stringify({ username, password }),
       });
 
-      const data = await response.json();
-      console.log(data);
+      // const data = await response.json();
+      // console.log(data);
       
-      if (response.ok) {
-        setUser(data.username); 
-        console.log(data.username);
-        
-        console.log("Login successful, redirecting to dashboard...");
-        // navigate("/dashboard");
-      } else {
-        setError(data.error || "Login failed. Invalid Crediantials");
-        
+      if(!response.ok) {
+        const errorData = await response.json();
+        throw new Error(errorData.error || "Login Failed!");
       }
+      const data = await response.json();
+      console.log(data.message || "Login successful!");
+      alert("Login successful!");     
+      navigate("/dashboard");
     } catch (err) {
-      setError("Something went wrong. Please try again.");
-    } finally {
-      setLoading(false);  
+      setError(err.message || "Something went Wrong. Try again.");
     }
   };
-
-  const handleNavigateToRegister = () => {
-    navigate("/register");
-  };
-
   return (
+    <>
+    <div className="page-background"></div>
+
     <div className="login-container">
       <h2 className="heading">Login</h2>
       <form onSubmit={handleSubmit} className="login-form">
@@ -76,10 +70,11 @@ function Login({ setUser }) {
         <button type="submit" className="login-button" disabled={loading}>
           {loading ? "Logging in..." : "Login"}
         </button>
-        <a href="Register">New User.? ISGN IN</a>
+        <a href="register">New User.? ISGN IN</a>
       </form>
       {error && <p className="login-error">{error}</p>}
     </div>
+    </>
   );
 }
 

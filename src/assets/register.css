@@ -1,122 +1,139 @@
 /* General Page Styling */
+.page-background {
+  position: fixed; /* Fix the background to the page */
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: url('./pp.jpg');
+  background-size: cover; /* Ensures the image covers the entire page */
+  background-position: center;
+  background-repeat: no-repeat;
+  z-index: -1; /* Keep it behind the content */
+}
+
 .page-container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-    background-color: #f4f4f4;
-  }
-  
-  /* Form Container */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  position: relative;
+  z-index: 1;
+}
+
+/* Form Container */
+.form-container {
+  background: rgba(98, 96, 96, 0.352); /* Light transparency to allow some image visibility */
+  padding: 40px;
+  border-radius: 15px;
+  box-shadow: 0 8px 30px rgba(179, 127, 127, 0.582);
+  width: 380px;
+  text-align: center;
+  position: relative;
+  z-index: 1;
+}
+
+/* Title */
+.form-title {
+  font-size: 28px;
+  font-weight: 600;
+  margin-bottom: 20px;
+  color: #070404;
+  text-transform: uppercase;
+}
+
+/* Error Message */
+.error-message {
+  color: #e02712;
+  font-size: 14px;
+  margin-bottom: 10px;
+}
+
+/* Form Content */
+.form-content {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+/* Form Groups */
+.form-group {
+  text-align: left;
+}
+
+/* Labels */
+.form-label {
+  display: block;
+  font-size: 15px;
+  font-weight: 700;
+  margin-bottom: 5px;
+  color: #00070c;
+}
+
+/* Input Fields */
+.form-input {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #bdc3c7;
+  border-radius: 8px;
+  font-size: 15px;
+  background-color: rgba(255, 255, 255, 0.9); /* Clearer background for input fields */
+  color: #030c15;
+  transition: 0.3s;
+}
+
+.form-input:focus {
+  border-color: #2980b9;
+  outline: none;
+}
+
+/* Submit Button */
+.form-button {
+  width: 100%;
+  padding: 15px;
+  background-color: #2980b9;
+  color: white;
+  font-size: 16px;
+  font-weight: 600;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.form-button:hover {
+  background-color: #210977b6;
+}
+
+/* Responsive Design */
+@media (max-width: 400px) {
   .form-container {
-    background: #ffffff;
-    padding: 30px;
-    border-radius: 10px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-    width: 350px;
-    text-align: center;
+    width: 90%;
+    padding: 20px;
   }
-  
-  /* Title */
-  .form-title {
-    font-size: 24px;
-    font-weight: bold;
-    margin-bottom: 20px;
-    color: #333;
-  }
-  
-  /* Error Message */
-  .error-message {
-    color: #d9534f;
-    font-size: 14px;
-    margin-bottom: 10px;
-  }
-  
-  /* Form Content */
-  .form-content {
-    display: flex;
-    flex-direction: column;
-    gap: 15px;
-  }
-  
-  /* Form Groups */
-  .form-group {
-    text-align: left;
-  }
-  
-  /* Labels */
-  .form-label {
-    display: block;
-    font-size: 14px;
-    font-weight: 600;
-    margin-bottom: 5px;
-    color: #555;
-  }
-  
-  /* Input Fields */
-  .form-input {
-    width: 100%;
-    padding: 10px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    font-size: 14px;
-    transition: 0.3s;
-  }
-  
-  .form-input:focus {
-    border-color: #007bff;
-    outline: none;
-  }
-  
-  /* Role Dropdown */
-  select.form-input {
-    cursor: pointer;
-  }
-  
-  /* Submit Button */
-  .form-button {
-    width: 100%;
-    padding: 10px;
-    background-color: #007bff;
-    color: white;
-    font-size: 16px;
-    font-weight: bold;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: 0.3s;
-  }
-  
-  .form-button:hover {
-    background-color: #0056b3;
-  }
-  
-  /* Responsive Design */
-  @media (max-width: 400px) {
-    .form-container {
-      width: 90%;
-    }
-  }
-  .form-footer {
-    margin-top: 20px;
-    font-size: 14px;
-    color: #2c3e50;
-    font-weight: 500;
-  }
-  
-  .form-link {
-    color: #2980b9;
-    text-decoration: none;
-    font-weight: 600;
-    transition: color 0.3s;
-  }
-  
-  .form-link:hover {
-    color: #1f618d;
-    text-decoration: underline;
-  }
-  
-  @keyframes fadeIn {
-    from { opacity: 0; transform: translateY(-10px); }
-    to { opacity: 1; transform: translateY(0); }
-  }  
+}
+
+/* Footer */
+.form-footer {
+  margin-top: 20px;
+  font-size: 20px;
+  color: #010d19;
+  font-weight: 500;
+}
+
+.form-link {
+  color: #0f0ff3;
+  text-decoration: none;
+  font-weight: 700;
+  transition: color 0.3s;
+}
+
+.form-link:hover {
+  color: #1f618d;
+  text-decoration: underline;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(-10px); }
+  to { opacity: 1; transform: translateY(0); }
+}

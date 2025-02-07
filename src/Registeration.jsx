@@ -23,20 +23,24 @@ function Register() {
         body: JSON.stringify({ username, password, email, role }),
       });
 
-      const data = await response.json(); // Await the response body
-
-      if (response.ok) {
-        console.log(data.message || "Registration successful!");
-        // Navigate to the homepage or login page
-      } else {
-        console.error(data.error || "Registration Failed!");
+      if (!response.ok) {
+        const errorData = await response.json();
+        throw new Error(errorData.error || "Registration Failed!");
       }
+
+      const data = await response.json();
+      console.log(data.message || "Registration successful!");
+      alert("Registration successful!");     
+      navigate("/"); // Redirect to login page
+      
     } catch (err) {
-       setError(err.message);
+      setError(err.message || "Registration failed! Please try again.");
     }
   };
 
   return (
+    <>
+    <div className="page-background"></div>
     <div className="page-container">
       <div className="form-container">
         <h1 className="form-title">Register</h1>
@@ -98,8 +102,8 @@ function Register() {
               className="form-input" placeholder="Select role"
             >
               <option>None</option>
-              <option value="user">User</option>
-              <option value="admin">Admin</option>
+              <option value="CUSTOMER">CUSTOMER</option>
+              <option value="ADMIN">ADMIN</option>
             </select>
           </div>
 
@@ -112,7 +116,7 @@ function Register() {
         </p>
       </div>
     </div>
-          
+      </>    
   );
 }
 
